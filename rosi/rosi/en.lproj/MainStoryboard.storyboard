@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Rosi Loca View Controller - Root View Controller-->
+        <scene sceneID="fob-fn-HAQ">
+            <objects>
+                <tableViewController storyboardIdentifier="localViewController" id="Zc9-Fm-QrF" customClass="RosiLocaViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="186" sectionHeaderHeight="22" sectionFooterHeight="22" id="oZ6-ap-hOV">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="localCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="localCell" rowHeight="186" id="Cfo-Qg-3UP" customClass="LocalCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="186"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lx-Pq-28n">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="373" id="nGI-HL-S8X"/>
+                                                <constraint firstAttribute="height" constant="185" id="rdw-yJ-GGc"/>
+                                            </constraints>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FyB-TX-fqp">
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRf-WB-KJb">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="desc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQk-xy-wKh">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="TRf-WB-KJb" firstAttribute="leading" secondItem="FyB-TX-fqp" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="AzQ-Pd-DVy"/>
+                                                <constraint firstAttribute="bottom" secondItem="TRf-WB-KJb" secondAttribute="bottom" constant="14" id="Gvm-Sq-g2j"/>
+                                                <constraint firstAttribute="trailing" secondItem="TRf-WB-KJb" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="HY1-ju-NLo"/>
+                                                <constraint firstItem="aQk-xy-wKh" firstAttribute="top" secondItem="FyB-TX-fqp" secondAttribute="top" constant="10" id="X8g-dd-bs9"/>
+                                                <constraint firstAttribute="trailing" secondItem="aQk-xy-wKh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ZXB-Ub-6QO"/>
+                                                <constraint firstItem="aQk-xy-wKh" firstAttribute="leading" secondItem="FyB-TX-fqp" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="zch-zw-AmF"/>
+                                            </constraints>
+                                        </view>
+                                        <progressView opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VGc-Af-6eU"/>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="FyB-TX-fqp" firstAttribute="leading" secondItem="Cfo-Qg-3UP" secondAttribute="leading" type="default" id="8de-C1-MId"/>
+                                    <constraint firstAttribute="trailing" secondItem="VGc-Af-6eU" secondAttribute="trailing" constant="20" type="default" id="Elc-or-lGa"/>
+                                    <constraint firstItem="VGc-Af-6eU" firstAttribute="leading" secondItem="Cfo-Qg-3UP" secondAttribute="leading" constant="20" type="default" id="LMZ-Ym-Ukz"/>
+                                    <constraint firstItem="7lx-Pq-28n" firstAttribute="centerX" secondItem="VGc-Af-6eU" secondAttribute="centerX" type="default" id="TEn-Lz-aCA"/>
+                                    <constraint firstItem="FyB-TX-fqp" firstAttribute="bottom" secondItem="7lx-Pq-28n" secondAttribute="bottom" type="default" id="bsm-B9-0qq"/>
+                                    <constraint firstItem="VGc-Af-6eU" firstAttribute="centerY" secondItem="Cfo-Qg-3UP" secondAttribute="centerY" type="default" id="cSp-xV-zjj"/>
+                                    <constraint firstItem="FyB-TX-fqp" firstAttribute="trailing" secondItem="Cfo-Qg-3UP" secondAttribute="trailing" type="default" id="gPF-c1-tAg"/>
+                                    <constraint firstItem="FyB-TX-fqp" firstAttribute="top" secondItem="VGc-Af-6eU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ohA-G9-dUA"/>
+                                    <constraint firstItem="7lx-Pq-28n" firstAttribute="top" secondItem="Cfo-Qg-3UP" secondAttribute="top" type="default" id="p9i-MS-yuq"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="coverImage" destination="7lx-Pq-28n" id="KAT-WX-RQe"/>
+                                    <outlet property="desc" destination="aQk-xy-wKh" id="B5H-wi-rfR"/>
+                                    <outlet property="downlaodProgress" destination="VGc-Af-6eU" id="7bC-an-nRC"/>
+                                    <outlet property="downloadCount" destination="TRf-WB-KJb" id="wnk-wb-m7c"/>
+                                    <outlet property="textRegionView" destination="FyB-TX-fqp" id="Hl2-5E-lVX"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Qbh-P9-fjk"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zyU-yA-pSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1091" y="-287"/>
+        </scene>
+        <!--Navigation Controller - 每日更新-->
+        <scene sceneID="mbR-ub-YJK">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="NMz-RQ-T19" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="每日更新" image="boxes.png" id="72Q-ig-vv8"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wCC-3r-8CX">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Zc9-Fm-QrF" kind="relationship" relationship="rootViewController" id="On8-Ed-lOk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PEn-I0-2MU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="679" y="-279"/>
+        </scene>
+        <!--Rosi Second View Controller - Second-->
+        <scene sceneID="13">
+            <objects>
+                <viewController title="Second" id="3" customClass="RosiSecondViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="17">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="22">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" text="Loaded by the second view controller — an instance of RosiSecondViewController — specified in the app delegate." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="23">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="cQR-IW-sY8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" size="system"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="22" firstAttribute="leading" secondItem="17" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0q6-IA-e8m"/>
+                            <constraint firstAttribute="trailing" secondItem="23" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="fR4-wH-Ih7"/>
+                            <constraint firstItem="23" firstAttribute="leading" secondItem="17" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fzb-YA-SeR"/>
+                            <constraint firstAttribute="centerY" secondItem="23" secondAttribute="centerY" type="user" id="llH-eD-iPS"/>
+                            <constraint firstAttribute="trailing" secondItem="22" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pc3-9Y-W42"/>
+                            <constraint firstItem="23" firstAttribute="top" secondItem="22" secondAttribute="bottom" constant="40" type="user" id="yUx-Ee-KEk"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="热门下载" image="second" id="6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="653" y="498"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="15">
+            <objects>
+                <tabBarController id="4" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="5">
+                        <rect key="frame" x="0.0" y="431" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="NMz-RQ-T19" kind="relationship" relationship="viewControllers" id="BMu-bE-eqK"/>
+                        <segue destination="3" kind="relationship" relationship="viewControllers" id="yyp-p2-CDy"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="180"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="boxes.png" width="32" height="32"/>
+        <image name="second" width="16" height="16"/>
+    </resources>
+    <classes>
+        <class className="LocalCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocalCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="coverImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="desc" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="downlaodProgress" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="downloadCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textRegionView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RosiLocaViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RosiLocaViewController.h"/>
+        </class>
+        <class className="RosiSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RosiSecondViewController.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
