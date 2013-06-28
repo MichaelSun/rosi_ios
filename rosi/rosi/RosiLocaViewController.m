@@ -102,6 +102,7 @@ BOOL showLoading;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithRed:0.29 green:0.32 blue:0.35 alpha:1];
 
     [self initData];
     
@@ -114,6 +115,8 @@ BOOL showLoading;
     [refreshButton addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem* rightItem = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
     self.navigationItem.rightBarButtonItem = rightItem;
+    
+    [self.tableView setSeparatorColor:[[UIColor alloc] initWithWhite:0 alpha:0]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -141,7 +144,6 @@ BOOL showLoading;
         cell = [[LocalCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    cell.downlaodProgress.hidden = true;
     cell.desc.textColor = [UIColor whiteColor];
     cell.desc.font = [UIFont boldSystemFontOfSize:20];
     cell.downloadCount.textColor = [UIColor whiteColor];

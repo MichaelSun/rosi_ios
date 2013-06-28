@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *coverImage;
 @property (weak, nonatomic) IBOutlet UILabel *desc;
 @property (weak, nonatomic) IBOutlet UILabel *downloadCount;
-@property (weak, nonatomic) IBOutlet UIProgressView *downlaodProgress;
 @property (weak, nonatomic) IBOutlet UIView *textRegionView;
 @property (weak, nonatomic) IBOutlet UILabel *status;
 
