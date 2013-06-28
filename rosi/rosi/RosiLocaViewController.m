@@ -23,6 +23,7 @@
 #import "Objective-Zip/FileInZipInfo.h"
 #import "Objective-Zip/ZipWriteStream.h"
 #import "Objective-Zip/ZipReadStream.h"
+#import <QuartzCore/CALayer.h>
 
 @interface RosiLocaViewController ()
 
@@ -137,6 +138,10 @@ BOOL showLoading;
     return 0;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 220;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"localCell";
     LocalCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -149,6 +154,15 @@ BOOL showLoading;
     cell.downloadCount.textColor = [UIColor whiteColor];
     cell.downloadCount.font = [UIFont systemFontOfSize:14];
     cell.textRegionView.backgroundColor = [UIColor colorWithCIColor:[CIColor colorWithRed:0 green:0 blue:0 alpha:0.6]];
+    CALayer* layer = [cell.coverImage layer];
+    [layer setMasksToBounds:YES];
+    [layer setCornerRadius:8.0];
+    [layer setBorderWidth:2];
+    [layer setBorderColor:[[UIColor blackColor] CGColor]];
+    layer = [cell.textRegionView layer];
+    [layer setCornerRadius:8.0];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     if (_dataSource != nil && [_dataSource count] > indexPath.row) {
         NSDictionary* item = [_dataSource objectAtIndex:indexPath.row];
         if (item != nil) {

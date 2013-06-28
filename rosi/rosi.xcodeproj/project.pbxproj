@@ -94,6 +94,7 @@
 		4C969030177BEAB40065B61C /* ZipHelperUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C96902F177BEAB40065B61C /* ZipHelperUtils.m */; };
 		4C969032177C18C10065B61C /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C969031177C18C10065B61C /* CoreImage.framework */; };
 		4C969035177C26080065B61C /* Fileutils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C969034177C26080065B61C /* Fileutils.m */; };
+		4C969037177D80F50065B61C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C969036177D80F50065B61C /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -247,6 +248,7 @@
 		4C969031177C18C10065B61C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		4C969033177C26080065B61C /* Fileutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fileutils.h; sourceTree = "<group>"; };
 		4C969034177C26080065B61C /* Fileutils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fileutils.m; sourceTree = "<group>"; };
+		4C969036177D80F50065B61C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C969037177D80F50065B61C /* QuartzCore.framework in Frameworks */,
 				4C969032177C18C10065B61C /* CoreImage.framework in Frameworks */,
 				4C968F11177AFEEF0065B61C /* Foundation.framework in Frameworks */,
 				4C969010177B009F0065B61C /* Security.framework in Frameworks */,
@@ -272,7 +275,6 @@
 		4C968F02177AFEEF0065B61C = {
 			isa = PBXGroup;
 			children = (
-				4C969031177C18C10065B61C /* CoreImage.framework */,
 				4C968F5D177AFFD40065B61C /* Classes */,
 				4C968F6B177AFFD40065B61C /* Libraries */,
 				4C968F85177AFFD40065B61C /* Alert */,
@@ -299,6 +301,8 @@
 		4C968F0D177AFEEF0065B61C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C969036177D80F50065B61C /* QuartzCore.framework */,
+				4C969031177C18C10065B61C /* CoreImage.framework */,
 				4C96900F177B009F0065B61C /* Security.framework */,
 				4C96900D177B00950065B61C /* SystemConfiguration.framework */,
 				4C96900B177B008C0065B61C /* CFNetwork.framework */,
@@ -856,6 +860,7 @@
 				4C968F3B177AFEEF0065B61C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

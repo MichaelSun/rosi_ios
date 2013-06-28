@@ -13,16 +13,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="localCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="localCell" rowHeight="205" id="Cfo-Qg-3UP" customClass="LocalCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="205"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="localCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="localCell" rowHeight="220" id="Cfo-Qg-3UP" customClass="LocalCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="220"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="204"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="219"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lx-Pq-28n">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="200" id="ZuB-E9-4z1"/>
+                                                <constraint firstAttribute="height" constant="200" id="9dr-GT-IGQ"/>
                                                 <constraint firstAttribute="width" constant="310" id="d3x-mc-ZYt"/>
                                             </constraints>
                                         </imageView>
@@ -63,14 +63,14 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="FyB-TX-fqp" firstAttribute="centerX" secondItem="Cfo-Qg-3UP" secondAttribute="centerX" type="default" id="AqN-zd-UAa"/>
+                                    <constraint firstItem="7lx-Pq-28n" firstAttribute="centerY" secondItem="Cfo-Qg-3UP" secondAttribute="centerY" type="default" id="3Ty-bm-dxg"/>
                                     <constraint firstItem="FyB-TX-fqp" firstAttribute="trailing" secondItem="7lx-Pq-28n" secondAttribute="trailing" type="default" id="IVF-4J-y8a"/>
                                     <constraint firstItem="7lx-Pq-28n" firstAttribute="leading" secondItem="FyB-TX-fqp" secondAttribute="leading" type="default" id="Pf5-LN-B6S"/>
-                                    <constraint firstItem="7lx-Pq-28n" firstAttribute="top" secondItem="Cfo-Qg-3UP" secondAttribute="top" constant="10" id="ZaV-dY-JK4"/>
-                                    <constraint firstItem="T6b-Ls-42u" firstAttribute="top" secondItem="Cfo-Qg-3UP" secondAttribute="top" constant="22" id="ejO-GG-jaY"/>
+                                    <constraint firstItem="FyB-TX-fqp" firstAttribute="top" secondItem="Cfo-Qg-3UP" secondAttribute="top" constant="130" id="fmG-VJ-Vxb"/>
                                     <constraint firstAttribute="trailing" secondItem="T6b-Ls-42u" secondAttribute="trailing" constant="12" id="ohs-Q6-Xf5"/>
-                                    <constraint firstItem="FyB-TX-fqp" firstAttribute="top" secondItem="Cfo-Qg-3UP" secondAttribute="top" constant="125" id="ovv-m8-Izt"/>
-                                    <constraint firstItem="FyB-TX-fqp" firstAttribute="bottom" secondItem="Cfo-Qg-3UP" secondAttribute="bottom" type="default" id="z2O-uT-37a"/>
+                                    <constraint firstItem="7lx-Pq-28n" firstAttribute="bottom" secondItem="FyB-TX-fqp" secondAttribute="bottom" type="default" id="wCh-YL-PtG"/>
+                                    <constraint firstItem="T6b-Ls-42u" firstAttribute="top" secondItem="Cfo-Qg-3UP" secondAttribute="top" constant="24" id="xlj-IC-bAK"/>
+                                    <constraint firstItem="7lx-Pq-28n" firstAttribute="centerX" secondItem="Cfo-Qg-3UP" secondAttribute="centerX" type="default" id="zwj-n1-7qX"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="coverImage" destination="7lx-Pq-28n" id="KAT-WX-RQe"/>
