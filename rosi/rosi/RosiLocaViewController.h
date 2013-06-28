@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Libraries/MBProgressHUD/MBProgressHUD.h"
+#import "MWPhotoBrowser.h"
 
-@interface RosiLocaViewController : UITableViewController <MBProgressHUDDelegate>
+@interface RosiLocaViewController : UITableViewController <MBProgressHUDDelegate, MWPhotoBrowserDelegate>
 
 @end

@@ -44,24 +44,34 @@
                                                 <constraint firstItem="TRf-WB-KJb" firstAttribute="leading" secondItem="FyB-TX-fqp" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="AzQ-Pd-DVy"/>
                                                 <constraint firstAttribute="bottom" secondItem="TRf-WB-KJb" secondAttribute="bottom" constant="14" id="Gvm-Sq-g2j"/>
                                                 <constraint firstAttribute="trailing" secondItem="TRf-WB-KJb" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="HY1-ju-NLo"/>
+                                                <constraint firstAttribute="trailing" secondItem="aQk-xy-wKh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="X5m-j3-4dS"/>
                                                 <constraint firstItem="aQk-xy-wKh" firstAttribute="top" secondItem="FyB-TX-fqp" secondAttribute="top" constant="10" id="X8g-dd-bs9"/>
-                                                <constraint firstAttribute="trailing" secondItem="aQk-xy-wKh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ZXB-Ub-6QO"/>
                                                 <constraint firstItem="aQk-xy-wKh" firstAttribute="leading" secondItem="FyB-TX-fqp" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="zch-zw-AmF"/>
                                             </constraints>
                                         </view>
                                         <progressView opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VGc-Af-6eU"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6b-Ls-42u">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="67" id="w8b-hy-xb2"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="T6b-Ls-42u" firstAttribute="top" secondItem="Cfo-Qg-3UP" secondAttribute="top" constant="20" type="default" id="0L1-9N-cqR"/>
                                     <constraint firstItem="FyB-TX-fqp" firstAttribute="leading" secondItem="Cfo-Qg-3UP" secondAttribute="leading" type="default" id="8de-C1-MId"/>
+                                    <constraint firstItem="FyB-TX-fqp" firstAttribute="centerX" secondItem="7lx-Pq-28n" secondAttribute="centerX" type="default" id="DKx-Bf-jq4"/>
                                     <constraint firstAttribute="trailing" secondItem="VGc-Af-6eU" secondAttribute="trailing" constant="20" type="default" id="Elc-or-lGa"/>
                                     <constraint firstItem="VGc-Af-6eU" firstAttribute="leading" secondItem="Cfo-Qg-3UP" secondAttribute="leading" constant="20" type="default" id="LMZ-Ym-Ukz"/>
-                                    <constraint firstItem="7lx-Pq-28n" firstAttribute="centerX" secondItem="VGc-Af-6eU" secondAttribute="centerX" type="default" id="TEn-Lz-aCA"/>
                                     <constraint firstItem="FyB-TX-fqp" firstAttribute="bottom" secondItem="7lx-Pq-28n" secondAttribute="bottom" type="default" id="bsm-B9-0qq"/>
                                     <constraint firstItem="VGc-Af-6eU" firstAttribute="centerY" secondItem="Cfo-Qg-3UP" secondAttribute="centerY" type="default" id="cSp-xV-zjj"/>
                                     <constraint firstItem="FyB-TX-fqp" firstAttribute="trailing" secondItem="Cfo-Qg-3UP" secondAttribute="trailing" type="default" id="gPF-c1-tAg"/>
                                     <constraint firstItem="FyB-TX-fqp" firstAttribute="top" secondItem="VGc-Af-6eU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ohA-G9-dUA"/>
+                                    <constraint firstAttribute="trailing" secondItem="T6b-Ls-42u" secondAttribute="trailing" constant="12" id="ohs-Q6-Xf5"/>
                                     <constraint firstItem="7lx-Pq-28n" firstAttribute="top" secondItem="Cfo-Qg-3UP" secondAttribute="top" type="default" id="p9i-MS-yuq"/>
                                 </constraints>
                                 <connections>
@@ -69,6 +79,7 @@
                                     <outlet property="desc" destination="aQk-xy-wKh" id="B5H-wi-rfR"/>
                                     <outlet property="downlaodProgress" destination="VGc-Af-6eU" id="7bC-an-nRC"/>
                                     <outlet property="downloadCount" destination="TRf-WB-KJb" id="wnk-wb-m7c"/>
+                                    <outlet property="status" destination="T6b-Ls-42u" id="w02-b4-V5z"/>
                                     <outlet property="textRegionView" destination="FyB-TX-fqp" id="Hl2-5E-lVX"/>
                                 </connections>
                             </tableViewCell>
@@ -166,6 +177,7 @@
                 <relationship kind="outlet" name="desc" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="downlaodProgress" candidateClass="UIProgressView"/>
                 <relationship kind="outlet" name="downloadCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="status" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="textRegionView" candidateClass="UIView"/>
             </relationships>
         </class>

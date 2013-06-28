@@ -14,10 +14,12 @@
 
 @implementation RosiSecondViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    self.navigationItem.title = @"热门下载";
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackOpaque;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
 }
 
 - (void)didReceiveMemoryWarning

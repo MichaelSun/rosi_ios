@@ -56,7 +56,7 @@
             NSString* unzipSubFileFullPath = [targetDirFullPath stringByAppendingPathComponent:filename];
             if (overWrite || ![fm fileExistsAtPath:unzipSubFileFullPath]) {
                 [fm createFileAtPath:unzipSubFileFullPath contents:nil attributes:nil];
-                NSFileHandle* file = [NSFileHandle fileHandleForReadingAtPath:unzipSubFileFullPath];
+                NSFileHandle* file = [NSFileHandle fileHandleForWritingAtPath:unzipSubFileFullPath];
                 NSMutableData* buffer = [[NSMutableData alloc] initWithLength:1024];
                 
                 ZipReadStream* rs = [unzipFile readCurrentFileInZip];

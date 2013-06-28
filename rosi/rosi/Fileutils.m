@@ -11,7 +11,7 @@
 @implementation Fileutils
 
 + (NSString*) DocumentFullPath {
-    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* path = paths[0];
     
     return path;

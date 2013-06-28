@@ -12,6 +12,8 @@ typedef void (^AlbumJsonDictBlock)(NSMutableDictionary* album);
 
 @interface AlbumEngine : MKNetworkEngine
 
-- (void) albumUrl:(NSString*) url completionHandler:(AlbumJsonDictBlock) callback postParams:(NSDictionary*) params errorHandler:(MKNKErrorBlock) error;
+- (void) albumUrl:(NSString*) url completionHandler:(AlbumJsonDictBlock) callback postParams:(NSDictionary*) params errorHandler:(MKNKErrorBlock) error  forceLoad:(BOOL) forceLoad;
+
+- (MKNetworkOperation *) createDownloadOpWithUrl:(NSString *) downloadUrl toFile:(NSString *) localFile;
 
 @end
