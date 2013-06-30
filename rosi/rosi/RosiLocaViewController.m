@@ -27,12 +27,13 @@
 
 @interface RosiLocaViewController ()
 
-@property (strong, nonatomic) NSArray* dataSource;
+@property (strong, nonatomic) NSMutableArray* dataSource;
 @property (strong, nonatomic) AlbumEngine* engine;
 //@property (strong, nonatomic) MBProgressHUD* hud;
 @property (strong, nonatomic) MBProgressHUD* unzipHud;
 @property (strong, nonatomic) NSFileManager* fm;
 @property (strong, nonatomic) NSMutableArray* photos;
+@property (strong, nonatomic) UIButton* footer;
 
 @end
 
@@ -40,11 +41,27 @@
 
 BOOL showLoading;
 
+BOOL hasMore = NO;
+
+int currentPage = 0;
+
+NSString* NO_MORE = @"没有更多了\n每天晚上八点都会更新哦~~";
+NSString* LOADING_MORE = @"点击加载更多\n每天晚上八点都会更新哦~~";
+
 - (void) initData {
-    _dataSource = [[NSArray alloc] init];
+    _dataSource = [[NSMutableArray alloc] init];
     _engine = ApplicationDelegate.albumEngine;
     _fm = [NSFileManager defaultManager];
     _photos = [[NSMutableArray alloc] init];
+    
+    CGRect rect = CGRectMake(0, 5, 320, 40);
+    _footer = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _footer.frame = rect;
+//    _footer.backgroundColor = [UIColor colorWithCIColor:[CIColor colorWithRed:0 green:0 blue:0 alpha:0.6]];
+//    _footer.titleLabel.textColor = [UIColor whiteColor];
+    [_footer setTitle:LOADING_MORE forState:UIControlStateNormal];
+//    self.tableView.tableFooterView = _footer;
+    [_footer addTarget:self action:@selector(loadMore) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -65,7 +82,7 @@ BOOL showLoading;
     [super viewDidAppear:animated];
     
     if ([_dataSource count] == 0) {
-        [self loadDataWithCategory:@"rosi" page:@"0"];
+        [self loadDataWithCategory:@"rosi" page:[[NSString alloc] initWithFormat:@"%d", currentPage]];
     }
 }
 
@@ -84,8 +101,24 @@ BOOL showLoading;
     
     [_engine albumUrl:@"showbooks" completionHandler:^(NSMutableDictionary *album) {
         if (album != nil && [album count] > 0) {
-            _dataSource = album[@"data"];
+            if ([page isEqualToString:@"0"]) {
+                [_dataSource removeAllObjects];
+            }
             
+            int more = [album[@"hasmore"] integerValue];
+            if (more == 1) {
+                hasMore = YES;
+            } else {
+                hasMore = NO;
+            }
+            
+            if (hasMore) {
+                [self performSelectorOnMainThread:@selector(showFooter) withObject:nil waitUntilDone:NO];
+            } else {
+                [self performSelectorOnMainThread:@selector(hideFooter) withObject:nil waitUntilDone:NO];
+            }
+            
+            [_dataSource addObjectsFromArray:album[@"data"]];
             if (_dataSource != nil && [_dataSource count] > 0) {
                 [self.tableView reloadData];
                 showLoading = false;
@@ -94,6 +127,19 @@ BOOL showLoading;
     } postParams:@{@"category" : category, @"page" : page} errorHandler:^(NSError *error) {
         showLoading = false;
     } forceLoad:forceLoad];
+}
+
+- (void) loadMore {
+    currentPage = currentPage + 1;
+    [self loadDataWithCategory:@"rosi" page:[[NSString alloc] initWithFormat:@"%d", currentPage]];
+}
+
+- (void) showFooter {
+    self.tableView.tableFooterView = _footer;
+}
+
+- (void) hideFooter {
+    self.tableView.tableFooterView = nil;
 }
 
 - (void)hudWasHidden:(MBProgressHUD *)hud {
@@ -112,9 +158,7 @@ BOOL showLoading;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     
     //set right button
-    UIButton* refreshButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    [refreshButton addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* rightItem = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
+    UIBarButtonItem* rightItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshAction:)];
     self.navigationItem.rightBarButtonItem = rightItem;
     
     [self.tableView setSeparatorColor:[[UIColor alloc] initWithWhite:0 alpha:0]];
@@ -126,7 +170,8 @@ BOOL showLoading;
 }
 
 - (void)refreshAction:(id) sender {
-    [self loadDataWithCategory:@"rosi" page:@"0"];
+    currentPage = 0;
+    [self loadDataWithCategory:@"rosi" page:[[NSString alloc] initWithFormat:@"%d", currentPage]];
 }
 
 #pragma mark - Table view data source
@@ -142,12 +187,24 @@ BOOL showLoading;
     return 220;
 }
 
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+//    return 50;
+//}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"localCell";
     LocalCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[LocalCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+    
+    cell.status.backgroundColor = [UIColor colorWithRed:0.95 green:0.4 blue:0.35 alpha:0.85];
+    cell.status.text = @"未下载";
+    cell.status.textColor = [UIColor whiteColor];
+    CALayer* l = [cell.status layer];
+    [l setCornerRadius:6.0];
+    [l setBorderWidth:2];
+    [l setBorderColor:[[UIColor grayColor] CGColor]];
     
     cell.desc.textColor = [UIColor whiteColor];
     cell.desc.font = [UIFont boldSystemFontOfSize:20];
