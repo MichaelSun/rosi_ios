@@ -8,6 +8,7 @@
 
 #import "AlbumEngin.h"
 #import "Fileutils.h"
+#import "StringUtils.h"
 
 @implementation AlbumEngine
 
@@ -19,7 +20,8 @@ NSString* FIRST_PAGE_DATA_FILE = @"firstPage.json";
     }
 
     NSString* docPath = [Fileutils DocumentFullPath];
-    NSString* cacheFilePath = [[NSString alloc] initWithFormat:@"%@/%@", docPath, FIRST_PAGE_DATA_FILE];
+    NSString* urlMD5 = [StringUtils md5Endcode:url];
+    NSString* cacheFilePath = [[NSString alloc] initWithFormat:@"%@/%@-%@", docPath, urlMD5, FIRST_PAGE_DATA_FILE];
     if (!forceLoad) {
         NSData* content = [NSData dataWithContentsOfFile:cacheFilePath];
         if (content != nil) {

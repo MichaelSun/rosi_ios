@@ -95,6 +95,8 @@
 		4C969032177C18C10065B61C /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C969031177C18C10065B61C /* CoreImage.framework */; };
 		4C969035177C26080065B61C /* Fileutils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C969034177C26080065B61C /* Fileutils.m */; };
 		4C969037177D80F50065B61C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C969036177D80F50065B61C /* QuartzCore.framework */; };
+		4C970D44178125FB008843F7 /* hot.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C970D42178125FB008843F7 /* hot.png */; };
+		4C970D45178125FB008843F7 /* hot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C970D43178125FB008843F7 /* hot@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -249,6 +251,8 @@
 		4C969033177C26080065B61C /* Fileutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fileutils.h; sourceTree = "<group>"; };
 		4C969034177C26080065B61C /* Fileutils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fileutils.m; sourceTree = "<group>"; };
 		4C969036177D80F50065B61C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4C970D42178125FB008843F7 /* hot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hot.png; sourceTree = "<group>"; };
+		4C970D43178125FB008843F7 /* hot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hot@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +361,8 @@
 		4C968F3C177AFFC80065B61C /* res */ = {
 			isa = PBXGroup;
 			children = (
+				4C970D42178125FB008843F7 /* hot.png */,
+				4C970D43178125FB008843F7 /* hot@2x.png */,
 				4C968F3D177AFFC80065B61C /* 37x-Checkmark.png */,
 				4C968F3E177AFFC80065B61C /* 37x-Checkmark@2x.png */,
 				4C968F3F177AFFC80065B61C /* BG.png */,
@@ -663,6 +669,8 @@
 				4C968FD9177AFFD40065B61C /* README.md in Resources */,
 				4C969004177AFFF50065B61C /* icon.png in Resources */,
 				4C969006177AFFFA0065B61C /* icon@2x.png in Resources */,
+				4C970D44178125FB008843F7 /* hot.png in Resources */,
+				4C970D45178125FB008843F7 /* hot@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

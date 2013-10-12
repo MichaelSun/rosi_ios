@@ -12,4 +12,6 @@
 
 @interface RosiLocaViewController : UITableViewController <MBProgressHUDDelegate, MWPhotoBrowserDelegate>
 
+@property (strong, nonatomic) NSString* restApi;
+
 @end

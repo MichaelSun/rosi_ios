@@ -16,10 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.navigationItem.title = @"热门下载";
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackOpaque;
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    
+    self.restApi = @"db/list/HotAlbum";
 }
 
 - (void)didReceiveMemoryWarning

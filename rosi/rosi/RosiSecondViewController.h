@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RosiLocaViewController.h"
 
-@interface RosiSecondViewController : UIViewController
+@interface RosiSecondViewController : RosiLocaViewController
 
 @end

@@ -34,6 +34,7 @@
 @property (strong, nonatomic) NSFileManager* fm;
 @property (strong, nonatomic) NSMutableArray* photos;
 @property (strong, nonatomic) UIButton* footer;
+@property (strong, nonatomic) NSMutableDictionary* downloadStatusDic;
 
 @end
 
@@ -62,6 +63,8 @@ NSString* LOADING_MORE = @"点击加载更多\n每天晚上八点都会更新哦
     [_footer setTitle:LOADING_MORE forState:UIControlStateNormal];
 //    self.tableView.tableFooterView = _footer;
     [_footer addTarget:self action:@selector(loadMore) forControlEvents:UIControlEventTouchUpInside];
+    self.restApi = @"showbooks";
+    _downloadStatusDic = [[NSMutableDictionary alloc] init];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -99,7 +102,7 @@ NSString* LOADING_MORE = @"点击加载更多\n每天晚上八点都会更新哦
         forceLoad = NO;
     }
     
-    [_engine albumUrl:@"showbooks" completionHandler:^(NSMutableDictionary *album) {
+    [_engine albumUrl:self.restApi completionHandler:^(NSMutableDictionary *album) {
         if (album != nil && [album count] > 0) {
             if ([page isEqualToString:@"0"]) {
                 [_dataSource removeAllObjects];
@@ -149,7 +152,8 @@ NSString* LOADING_MORE = @"点击加载更多\n每天晚上八点都会更新哦
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithRed:0.29 green:0.32 blue:0.35 alpha:1];
+//    self.view.backgroundColor = [UIColor colorWithRed:0.29 green:0.32 blue:0.35 alpha:1];
+    self.view.backgroundColor = [UIColor grayColor];
 
     [self initData];
     
@@ -198,8 +202,20 @@ NSString* LOADING_MORE = @"点击加载更多\n每天晚上八点都会更新哦
         cell = [[LocalCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    cell.status.backgroundColor = [UIColor colorWithRed:0.95 green:0.4 blue:0.35 alpha:0.85];
-    cell.status.text = @"未下载";
+    NSDictionary* item = [_dataSource objectAtIndex:indexPath.row];
+    NSString* downloadUrl = item[@"downloadUrl"];
+    NSString* docPath = [Fileutils DocumentFullPath];
+    NSString* downloadUrlMD5 = [StringUtils md5Endcode:downloadUrl];
+    NSString* sessionLocalFullPath = [[NSString alloc] initWithFormat:@"%@/%@", docPath, downloadUrlMD5];
+    
+    if ([_fm fileExistsAtPath:sessionLocalFullPath]) {
+        cell.status.backgroundColor = [UIColor colorWithRed:0.21 green:0.368 blue:0.05 alpha:1.0];
+        cell.status.text = @"已下载";
+    } else {
+        cell.status.backgroundColor = [UIColor colorWithRed:0.5 green:0.16 blue:0.16 alpha:1.0];
+        cell.status.text = @"未下载";
+    }
+    cell.status.font = [UIFont boldSystemFontOfSize:16];
     cell.status.textColor = [UIColor whiteColor];
     CALayer* l = [cell.status layer];
     [l setCornerRadius:6.0];
@@ -302,6 +318,7 @@ NSString* LOADING_MORE = @"点击加载更多\n每天晚上八点都会更新哦
         NSFileManager* fm = [NSFileManager defaultManager];
         if ([fm fileExistsAtPath:sessionDirFullPath]) {
             NSArray* fileList = [fm subpathsAtPath:sessionDirFullPath];
+            [_photos removeAllObjects];
             for (NSString* file in fileList) {
                 if ([[file pathExtension] isEqualToString:@"jpg"]) {
                     MWPhoto* photo = [MWPhoto photoWithFilePath:[[NSString alloc] initWithFormat:@"%@/%@", sessionDirFullPath, file]];
